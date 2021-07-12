@@ -163,7 +163,7 @@
     "@types/which": "^2.0.1",
     "archiver": "^5.3.0",
     "catch-uncommitted": "^2.0.0",
-    "caxa": "pdcastro/caxa#d3bdea58be4a9e9da2d182f620eae3de26284b44",
+    "caxa": "pdcastro/caxa#fe9fe9e1d620b9646f274121052465ca46009d77",
     "chai": "^4.3.4",
     "chai-as-promised": "^7.1.1",
     "cross-env": "^7.0.3",

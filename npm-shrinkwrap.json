@@ -4309,8 +4309,8 @@
       "dev": true
     },
     "caxa": {
-      "version": "github:pdcastro/caxa#d3bdea58be4a9e9da2d182f620eae3de26284b44",
-      "from": "github:pdcastro/caxa#d3bdea58be4a9e9da2d182f620eae3de26284b44",
+      "version": "github:pdcastro/caxa#fe9fe9e1d620b9646f274121052465ca46009d77",
+      "from": "github:pdcastro/caxa#fe9fe9e1d620b9646f274121052465ca46009d77",
       "dev": true,
       "requires": {
         "archiver": "^5.2.0",

@@ -64,6 +64,7 @@ export async function makeCaxaInstaller() {
 		dedupe: false,
 		prepareCommand: 'npm prune --production',
 		removeBuildDirectory: true,
+		uncompressionMessage: `Installing the balena CLI to "${balenaInstallDir}"...`,
 	});
 	const caxaTmp = path.join(os.tmpdir(), 'caxa');
 	console.error(`Cleaning up caxa temp dir "${caxaTmp}"`);
