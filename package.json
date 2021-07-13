@@ -47,7 +47,7 @@
   },
   "scripts": {
     "postinstall": "node patches/apply-patches.js",
-    "prebuild": "rimraf build/ build-bin/",
+    "prebuild": "rimraf build build-bin build-dev",
     "build": "npm run build:src && npm run catch-uncommitted",
     "build:src": "npm run lint && npm run build:fast && npm run build:test && npm run build:doc && npm run build:completion",
     "build:fast": "gulp pages && tsc && npx oclif-dev manifest",
@@ -56,7 +56,7 @@
     "build:completion": "node completion/generate-completion.js",
     "build:standalone": "ts-node --transpile-only automation/run.ts build:standalone",
     "build:installer": "ts-node --transpile-only automation/run.ts build:installer",
-    "build:caxa": "ts-node --transpile-only automation/make-caxa-installer.ts",
+    "build:caxa": "rimraf build-dev && tsc -P ./tsconfig.caxa.json",
     "package": "npm run build:fast && npm run build:standalone && npm run build:installer",
     "release": "ts-node --transpile-only automation/run.ts release",
     "pretest": "npm run build",

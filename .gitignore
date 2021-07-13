@@ -26,6 +26,7 @@
 .fast-boot.json
 .resinconf
 /balenarc.yml
+/automation/caxa/build/
 /build/
 /build-bin/
 /dist/

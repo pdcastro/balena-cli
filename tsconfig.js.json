@@ -3,5 +3,8 @@
 	"compilerOptions": {
 		"noImplicitAny": false,
 		"checkJs": true
-	}
+	},
+	"exclude": [
+		"./automation/caxa/build/*"
+	]
 }

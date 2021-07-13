@@ -35,56 +35,62 @@ import { stripIndent } from '../lib/utils/lazy';
 import {
 	diffLines,
 	getSubprocessStdout,
-	loadPackageJson,
 	ROOT,
 	StdOutTap,
 	whichSpawn,
 } from './utils';
 
-export const packageJSON = loadPackageJson();
-export const version = 'v' + packageJSON.version;
-const arch = process.arch;
+import {
+	version,
+	oclifInstallers,
+	renamedOclifInstallers,
+	standaloneZips,
+} from './assets';
+
+// export const packageJSON = loadPackageJson();
+// export const version = 'v' + packageJSON.version;
+// const arch = process.arch;
 const MSYS2_BASH =
 	process.env.MSYSSHELLPATH || 'C:\\msys64\\usr\\bin\\bash.exe';
 
-function dPath(...paths: string[]) {
-	return path.join(ROOT, 'dist', ...paths);
-}
+// function dPath(...paths: string[]) {
+// 	return path.join(ROOT, 'dist', ...paths);
+// }
 
-interface PathByPlatform {
-	[platform: string]: string;
-}
+// interface PathByPlatform {
+// 	[platform: string]: string;
+// }
 
-const standaloneZips: PathByPlatform = {
-	linux: dPath(`balena-cli-${version}-linux-${arch}-standalone.zip`),
-	darwin: dPath(`balena-cli-${version}-macOS-${arch}-standalone.zip`),
-	win32: dPath(`balena-cli-${version}-windows-${arch}-standalone.zip`),
-};
+// const standaloneZips: PathByPlatform = {
+// 	linux: dPath(`balena-cli-${version}-linux-${arch}-standalone.zip`),
+// 	darwin: dPath(`balena-cli-${version}-macOS-${arch}-standalone.zip`),
+// 	win32: dPath(`balena-cli-${version}-windows-${arch}-standalone.zip`),
+// };
 
-const oclifInstallers: PathByPlatform = {
-	darwin: dPath('macos', `balena-${version}.pkg`),
-	win32: dPath('win', `balena-${version}-${arch}.exe`),
-};
+// const oclifInstallers: PathByPlatform = {
+// 	darwin: dPath('macos', `balena-${version}.pkg`),
+// 	win32: dPath('win', `balena-${version}-${arch}.exe`),
+// };
 
-const renamedOclifInstallers: PathByPlatform = {
-	darwin: dPath(`balena-cli-${version}-macOS-${arch}-installer.pkg`),
-	win32: dPath(`balena-cli-${version}-windows-${arch}-installer.exe`),
-};
+// const renamedOclifInstallers: PathByPlatform = {
+// 	darwin: dPath(`balena-cli-${version}-macOS-${arch}-installer.pkg`),
+// 	win32: dPath(`balena-cli-${version}-windows-${arch}-installer.exe`),
+// };
 
-export const caxaInstallers: PathByPlatform = {
-	darwin: dPath(`balena-cli-${version}-macOS-${arch}-installer`),
-	linux: dPath(`balena-cli-${version}-linux-${arch}-installer`),
-};
+// export const caxaInstallers: PathByPlatform = {
+// 	darwin: dPath(`balena-cli-${version}-macOS-${arch}-installer`),
+// 	linux: dPath(`balena-cli-${version}-linux-${arch}-installer`),
+// };
 
-export const finalReleaseAssets: { [platform: string]: string[] } = {
-	win32: [standaloneZips['win32'], renamedOclifInstallers['win32']],
-	darwin: [
-		standaloneZips['darwin'],
-		renamedOclifInstallers['darwin'],
-		caxaInstallers['darwin'],
-	],
-	linux: [standaloneZips['linux'], caxaInstallers['linux']],
-};
+// export const finalReleaseAssets: { [platform: string]: string[] } = {
+// 	win32: [standaloneZips['win32'], renamedOclifInstallers['win32']],
+// 	darwin: [
+// 		standaloneZips['darwin'],
+// 		renamedOclifInstallers['darwin'],
+// 		caxaInstallers['darwin'],
+// 	],
+// 	linux: [standaloneZips['linux'], caxaInstallers['linux']],
+// };
 
 /**
  * Given the output of `pkg` as a string (containing warning messages),

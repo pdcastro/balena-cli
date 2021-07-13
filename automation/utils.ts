@@ -100,10 +100,6 @@ export function diffLines(str1: string, str2: string): string {
 	return diffStr;
 }
 
-export function loadPackageJson() {
-	return require(path.join(ROOT, 'package.json'));
-}
-
 /**
  * Run the executable at execPath as a child process, and resolve a promise
  * to the executable's stdout output as a string. Reject the promise if

@@ -19,7 +19,7 @@ import * as Bluebird from 'bluebird';
 import * as _ from 'lodash';
 import * as semver from 'semver';
 
-import { finalReleaseAssets, version } from './build-bin';
+import { finalReleaseAssets, version } from './assets';
 
 const { GITHUB_TOKEN } = process.env;
 

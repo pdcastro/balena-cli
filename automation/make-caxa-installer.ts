@@ -21,8 +21,6 @@ import * as path from 'path';
 import { promises as fs } from 'fs';
 import { remove } from 'fs-extra';
 
-import { ROOT } from './utils';
-
 // balena-cli folders and files to include in the caxa installer
 const itemsToCopy = [
 	'bin',
@@ -34,6 +32,7 @@ const itemsToCopy = [
 ];
 
 export async function makeCaxaInstaller() {
+	const { ROOT, caxaInstallers } = await import('./assets');
 	const absItemsToCopy = itemsToCopy.map((i) => path.join(ROOT, i));
 	// select directory entries only, and append trailing '/' or '\\'
 	const dirsToCopy = (
@@ -47,7 +46,6 @@ export async function makeCaxaInstaller() {
 			}),
 		)
 	).filter((dir) => dir);
-	const { caxaInstallers } = await import('./build-bin');
 	const balenaInstallDir = '/usr/local/lib/balena-cli';
 	const caxaSourceDir = ROOT;
 	const caxaExecutable = caxaInstallers[process.platform];
